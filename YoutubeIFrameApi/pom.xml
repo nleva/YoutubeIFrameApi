@@ -13,7 +13,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>YoutubeApi</name>
+	<name>YoutubeIFrameApi</name>
+	<description>YoutubeIFrameApi for GWT</description>
+	
+	
 
 	<dependencies>
 		<dependency>
@@ -92,5 +95,7 @@
 
 		</plugins>
 	</build>
+
+
 
 </project>
