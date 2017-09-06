@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to="YT">
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name="ru.sendto.gwt.Html" />
+	<source path="yt" />
+</module>
