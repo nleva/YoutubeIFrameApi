@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<!-- replace it with your dependency artifact -->
@@ -11,7 +10,7 @@
 
 	<groupId>ru.send-to.gwt</groupId>
 	<artifactId>YoutubeIFrameApi</artifactId>
-	<version>3.2-SNAPSHOT</version>
+	<version>3.2</version>
 	<packaging>jar</packaging>
 
 	<name>YoutubeIFrameApi</name>
@@ -109,7 +108,7 @@
 		<url>https://github.com/nleva/${project.artifactId}</url>
 		<connection>scm:git:https://github.com/nleva/${project.artifactId}.git</connection>
 		<developerConnection>scm:git:https://github.com/nleva/${project.artifactId}.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>YoutubeIFrameApi-3.2</tag>
 	</scm>
 
 </project>
