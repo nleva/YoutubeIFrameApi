@@ -11,7 +11,7 @@
 
 	<groupId>ru.send-to.gwt</groupId>
 	<artifactId>YoutubeIFrameApi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>3.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>YoutubeIFrameApi</name>
