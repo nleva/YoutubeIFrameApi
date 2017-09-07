@@ -17,13 +17,13 @@ public class YT extends JavaScriptObject {
 		}
 	}
 
-	public static class PleerReadyEvent {
-		private PleerReadyEvent() {
+	public static class PlayerReadyEvent {
+		private PlayerReadyEvent() {
 		}
 
-		static PleerReadyEvent i = new PleerReadyEvent();
+		static PlayerReadyEvent i = new PlayerReadyEvent();
 
-		public static PleerReadyEvent get() {
+		public static PlayerReadyEvent get() {
 			return i;
 		}
 	}
@@ -481,7 +481,7 @@ public class YT extends JavaScriptObject {
 	}
 
 	static private void firePlayerReady(Event e) {
-		Bus.getBy(e.getTarget().getPlayerId()).fire(PleerReadyEvent.get());
+		Bus.getBy(e.getTarget().getPlayerId()).fire(PlayerReadyEvent.get());
 	}
 
 	static private void fireStateChange(Event e) {
