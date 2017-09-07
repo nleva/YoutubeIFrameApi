@@ -467,7 +467,7 @@ public class YT extends JavaScriptObject {
 				'onPlaybackQualityChange':@ru.sendto.gwt.yt.client.YT::firePlaybackQualityChange(),
 				'onPlaybackRateChange':@ru.sendto.gwt.yt.client.YT::firePlaybackRateChange(),
 				'onError':@ru.sendto.gwt.yt.client.YT::fireError(),
-				'onApiChange'@ru.sendto.gwt.yt.client.YT::fireApiChange()
+				'onApiChange':@ru.sendto.gwt.yt.client.YT::fireApiChange()
 				
 			}});
 	}-*/;
