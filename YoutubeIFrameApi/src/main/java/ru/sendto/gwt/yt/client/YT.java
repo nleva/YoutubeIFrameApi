@@ -459,7 +459,7 @@ public class YT extends JavaScriptObject {
 
 	public final native Player player(String elementId, String videoId, PlayerVars vars)/*-{
 		return new YT.Player(elementId, 
-			videoId:videoId,
+			{videoId:videoId,
 			playerVars:vars,
 			events:{
 				'onReady':@ru.sendto.gwt.yt.client.YT::firePleerReady(),
@@ -469,7 +469,7 @@ public class YT extends JavaScriptObject {
 				'onError':@ru.sendto.gwt.yt.client.YT::fireError(),
 				'onApiChange'@ru.sendto.gwt.yt.client.YT::fireApiChange():
 				
-			});
+			}});
 	}-*/;
 
 	static private native void init()/*-{
