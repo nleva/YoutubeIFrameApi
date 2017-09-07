@@ -101,15 +101,12 @@ public class YT extends JavaScriptObject {
 	}
 
 	static public native YT get()/*-{
-		if (!($wnd.YT)) {
-			@ru.sendto.gwt.yt.client.YT::load()();
-		}
 		return $wnd.YT;
 	}-*/;
 
-	static private void load() {
+	static public void load() {
 		init();
-		ScriptInjector.fromUrl("https://www.youtube.com/iframe_api");
+		ScriptInjector.fromUrl("https://www.youtube.com/iframe_api").setWindow(ScriptInjector.TOP_WINDOW).setRemoveTag(false).inject();
 	};
 
 	static public class PlayerVars {
@@ -458,7 +455,7 @@ public class YT extends JavaScriptObject {
 	}
 
 	public final native Player player(String elementId, String videoId, PlayerVars vars)/*-{
-		return new YT.Player(elementId, 
+		return new $wnd.YT.Player(elementId, 
 			{videoId:videoId,
 			playerVars:vars,
 			events:{
@@ -473,7 +470,7 @@ public class YT extends JavaScriptObject {
 	}-*/;
 
 	static private native void init()/*-{
-		$wnd.onYouTubeIframeAPIReady=@ru.sendto.gwt.yt.client.YT::fireEventOnAPIReady()();
+		$wnd.onYouTubeIframeAPIReady=@ru.sendto.gwt.yt.client.YT::fireEventOnAPIReady();
 	}-*/;
 
 	static private void fireEventOnAPIReady() {
