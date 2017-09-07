@@ -116,7 +116,12 @@ public class YT extends JavaScriptObject {
 
 		public static PlayerVars getMinimal() {
 			return new PlayerVars()
-					.setAutoplay(false);
+					.setAutoplay(false)
+					.setDisablekb(true)
+					.setControls(0)
+					.setModestbranding(1)
+					.setRel(false);
+//					.setOrigin(origin);
 		}
 
 		public static PlayerVars getDefault() {
