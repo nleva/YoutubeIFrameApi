@@ -7,7 +7,7 @@ import ru.sendto.gwt.client.util.Bus;
 
 public class YT extends JavaScriptObject {
 	public static class ApiReadyEvent {
-		ApiReadyEvent() {
+		private ApiReadyEvent() {
 		}
 
 		static ApiReadyEvent i = new ApiReadyEvent();
@@ -17,19 +17,19 @@ public class YT extends JavaScriptObject {
 		}
 	}
 
-	public static class PlayerReadyEvent {
-		PlayerReadyEvent() {
+	public static class PleerReadyEvent {
+		private PleerReadyEvent() {
 		}
 
-		static PlayerReadyEvent i = new PlayerReadyEvent();
+		static PleerReadyEvent i = new PleerReadyEvent();
 
-		public static PlayerReadyEvent get() {
+		public static PleerReadyEvent get() {
 			return i;
 		}
 	}
 
 	public static class StateChangeEvent {
-		StateChangeEvent() {
+		private StateChangeEvent() {
 		}
 
 		static StateChangeEvent i = new StateChangeEvent();
@@ -40,7 +40,7 @@ public class YT extends JavaScriptObject {
 	}
 
 	public static class PlaybackQualityChangeEvent {
-		PlaybackQualityChangeEvent() {
+		private PlaybackQualityChangeEvent() {
 		}
 
 		static PlaybackQualityChangeEvent i = new PlaybackQualityChangeEvent();
@@ -51,7 +51,7 @@ public class YT extends JavaScriptObject {
 	}
 
 	public static class ErrorEvent {
-		ErrorEvent() {
+		private ErrorEvent() {
 		}
 
 		static ErrorEvent i = new ErrorEvent();
@@ -62,7 +62,7 @@ public class YT extends JavaScriptObject {
 	}
 
 	public static class ApiChangeEvent {
-		ApiChangeEvent() {
+		private ApiChangeEvent() {
 		}
 
 		static ApiChangeEvent i = new ApiChangeEvent();
@@ -73,7 +73,7 @@ public class YT extends JavaScriptObject {
 	}
 
 	public static class PlaybackRateChangeEvent {
-		PlaybackRateChangeEvent() {
+		private PlaybackRateChangeEvent() {
 		}
 
 		static PlaybackRateChangeEvent i = new PlaybackRateChangeEvent();
@@ -107,7 +107,7 @@ public class YT extends JavaScriptObject {
 		return $wnd.YT;
 	}-*/;
 
-	static void load() {
+	static private void load() {
 		init();
 		ScriptInjector.fromUrl("https://www.youtube.com/iframe_api");
 	};
@@ -462,45 +462,45 @@ public class YT extends JavaScriptObject {
 			{videoId:videoId,
 			playerVars:vars,
 			events:{
-				'onReady':@ru.sendto.gwt.yt.client.YT::firePleerReady(),
-				'onStateChange':@ru.sendto.gwt.yt.client.YT::fireStateChange(),
-				'onPlaybackQualityChange':@ru.sendto.gwt.yt.client.YT::firePlaybackQualityChange(),
-				'onPlaybackRateChange':@ru.sendto.gwt.yt.client.YT::firePlaybackRateChange(),
-				'onError':@ru.sendto.gwt.yt.client.YT::fireError(),
-				'onApiChange':@ru.sendto.gwt.yt.client.YT::fireApiChange()
+				'onReady':@ru.sendto.gwt.yt.client.YT::firePlayerReady(Lru/sendto/gwt/yt/client/YT$Event;),
+				'onStateChange':@ru.sendto.gwt.yt.client.YT::fireStateChange(Lru/sendto/gwt/yt/client/YT$Event;),
+				'onPlaybackQualityChange':@ru.sendto.gwt.yt.client.YT::firePlaybackQualityChange(Lru/sendto/gwt/yt/client/YT$Event;),
+				'onPlaybackRateChange':@ru.sendto.gwt.yt.client.YT::firePlaybackRateChange(Lru/sendto/gwt/yt/client/YT$Event;),
+				'onError':@ru.sendto.gwt.yt.client.YT::fireError(Lru/sendto/gwt/yt/client/YT$Event;),
+				'onApiChange':@ru.sendto.gwt.yt.client.YT::fireApiChange(Lru/sendto/gwt/yt/client/YT$Event;)
 				
 			}});
 	}-*/;
 
-	static native void init()/*-{
+	static private native void init()/*-{
 		$wnd.onYouTubeIframeAPIReady=@ru.sendto.gwt.yt.client.YT::fireEventOnAPIReady()();
 	}-*/;
 
-	static void fireEventOnAPIReady() {
+	static private void fireEventOnAPIReady() {
 		Bus.get().fire(ApiReadyEvent.get());
 	}
 
-	static void firePleerReady(Event e) {
-		Bus.getBy(e.getTarget().getPlayerId()).fire(PlayerReadyEvent.get());
+	static private void firePlayerReady(Event e) {
+		Bus.getBy(e.getTarget().getPlayerId()).fire(PleerReadyEvent.get());
 	}
 
-	static void fireStateChange(Event e) {
+	static private void fireStateChange(Event e) {
 		Bus.getBy(e.getTarget().getPlayerId()).fire(StateChangeEvent.get());
 	}
 
-	static void firePlaybackQualityChange(Event e) {
+	static private void firePlaybackQualityChange(Event e) {
 		Bus.getBy(e.getTarget().getPlayerId()).fire(PlaybackQualityChangeEvent.get());
 	}
 
-	static void fireError(Event e) {
+	static private void fireError(Event e) {
 		Bus.getBy(e.getTarget().getPlayerId()).fire(ErrorEvent.get());
 	}
 
-	static void fireApiChange(Event e) {
+	static private void fireApiChange(Event e) {
 		Bus.getBy(e.getTarget().getPlayerId()).fire(ApiChangeEvent.get());
 	}
 
-	static void firePlaybackRateChange(Event e) {
+	static private void firePlaybackRateChange(Event e) {
 		Bus.getBy(e.getTarget().getPlayerId()).fire(PlaybackRateChangeEvent.get());
 	}
 
