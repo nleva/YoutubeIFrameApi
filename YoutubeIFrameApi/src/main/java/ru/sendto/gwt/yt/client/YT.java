@@ -7,7 +7,7 @@ import ru.sendto.gwt.client.util.Bus;
 
 public class YT extends JavaScriptObject {
 	public static class ApiReadyEvent {
-		private ApiReadyEvent() {
+		ApiReadyEvent() {
 		}
 
 		static ApiReadyEvent i = new ApiReadyEvent();
@@ -17,19 +17,19 @@ public class YT extends JavaScriptObject {
 		}
 	}
 
-	public static class PleerReadyEvent {
-		private PleerReadyEvent() {
+	public static class PlayerReadyEvent {
+		PlayerReadyEvent() {
 		}
 
-		static PleerReadyEvent i = new PleerReadyEvent();
+		static PlayerReadyEvent i = new PlayerReadyEvent();
 
-		public static PleerReadyEvent get() {
+		public static PlayerReadyEvent get() {
 			return i;
 		}
 	}
 
 	public static class StateChangeEvent {
-		private StateChangeEvent() {
+		StateChangeEvent() {
 		}
 
 		static StateChangeEvent i = new StateChangeEvent();
@@ -40,7 +40,7 @@ public class YT extends JavaScriptObject {
 	}
 
 	public static class PlaybackQualityChangeEvent {
-		private PlaybackQualityChangeEvent() {
+		PlaybackQualityChangeEvent() {
 		}
 
 		static PlaybackQualityChangeEvent i = new PlaybackQualityChangeEvent();
@@ -51,7 +51,7 @@ public class YT extends JavaScriptObject {
 	}
 
 	public static class ErrorEvent {
-		private ErrorEvent() {
+		ErrorEvent() {
 		}
 
 		static ErrorEvent i = new ErrorEvent();
@@ -62,7 +62,7 @@ public class YT extends JavaScriptObject {
 	}
 
 	public static class ApiChangeEvent {
-		private ApiChangeEvent() {
+		ApiChangeEvent() {
 		}
 
 		static ApiChangeEvent i = new ApiChangeEvent();
@@ -73,7 +73,7 @@ public class YT extends JavaScriptObject {
 	}
 
 	public static class PlaybackRateChangeEvent {
-		private PlaybackRateChangeEvent() {
+		PlaybackRateChangeEvent() {
 		}
 
 		static PlaybackRateChangeEvent i = new PlaybackRateChangeEvent();
@@ -107,7 +107,7 @@ public class YT extends JavaScriptObject {
 		return $wnd.YT;
 	}-*/;
 
-	static private void load() {
+	static void load() {
 		init();
 		ScriptInjector.fromUrl("https://www.youtube.com/iframe_api");
 	};
@@ -472,35 +472,35 @@ public class YT extends JavaScriptObject {
 			}});
 	}-*/;
 
-	static private native void init()/*-{
+	static native void init()/*-{
 		$wnd.onYouTubeIframeAPIReady=@ru.sendto.gwt.yt.client.YT::fireEventOnAPIReady()();
 	}-*/;
 
-	static private void fireEventOnAPIReady() {
+	static void fireEventOnAPIReady() {
 		Bus.get().fire(ApiReadyEvent.get());
 	}
 
-	static private void firePleerReady(Event e) {
-		Bus.getBy(e.getTarget().getPlayerId()).fire(PleerReadyEvent.get());
+	static void firePleerReady(Event e) {
+		Bus.getBy(e.getTarget().getPlayerId()).fire(PlayerReadyEvent.get());
 	}
 
-	static private void fireStateChange(Event e) {
+	static void fireStateChange(Event e) {
 		Bus.getBy(e.getTarget().getPlayerId()).fire(StateChangeEvent.get());
 	}
 
-	static private void firePlaybackQualityChange(Event e) {
+	static void firePlaybackQualityChange(Event e) {
 		Bus.getBy(e.getTarget().getPlayerId()).fire(PlaybackQualityChangeEvent.get());
 	}
 
-	static private void fireError(Event e) {
+	static void fireError(Event e) {
 		Bus.getBy(e.getTarget().getPlayerId()).fire(ErrorEvent.get());
 	}
 
-	static private void fireApiChange(Event e) {
+	static void fireApiChange(Event e) {
 		Bus.getBy(e.getTarget().getPlayerId()).fire(ApiChangeEvent.get());
 	}
 
-	static private void firePlaybackRateChange(Event e) {
+	static void firePlaybackRateChange(Event e) {
 		Bus.getBy(e.getTarget().getPlayerId()).fire(PlaybackRateChangeEvent.get());
 	}
 
