@@ -11,7 +11,7 @@
 
 	<groupId>ru.send-to.gwt</groupId>
 	<artifactId>YoutubeIFrameApi</artifactId>
-	<version>3.0-SNAPSHOT</version>
+	<version>3.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>YoutubeIFrameApi</name>
@@ -75,7 +75,11 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	<scm>
+		<url>https://github.com/nleva/${project.artifactId}</url>
+		<connection>scm:git:https://github.com/nleva/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:https://github.com/nleva/${project.artifactId}.git</developerConnection>
+	</scm>
 
 
 </project>
