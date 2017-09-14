@@ -9,10 +9,15 @@ public class Player extends JavaScriptObject {
 				highres = "highres", def = "default";
 	}
 
-	static class VideoParams extends JavaScriptObject {
+	static public class VideoParams extends JavaScriptObject {
 		protected VideoParams() {
 		}
 
+		static public native VideoParams get()/*-{
+			return {};
+		}-*/;
+
+		
 		final public native VideoParams setMediaContentUrl(String mediaContentUrl)/*-{
 			this.mediaContentUrl = mediaContentUrl;
 			return this;
@@ -44,6 +49,9 @@ public class Player extends JavaScriptObject {
 		protected VideoListParams() {
 		}
 
+		static public native VideoListParams get()/*-{
+			return {};
+		}-*/;
 		final public native VideoListParams setListType(String listType)/*-{
 			this.listType = listType;
 			return this;
