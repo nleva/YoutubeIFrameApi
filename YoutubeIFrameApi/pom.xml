@@ -5,7 +5,7 @@
 		<!-- replace it with your dependency artifact -->
 		<groupId>ru.send-to.versionManagement</groupId>
 		<artifactId>LibsManagement</artifactId>
-		<version>0.4</version>
+		<version>0.5</version>
 	</parent>
 
 	<groupId>ru.send-to.gwt</groupId>
