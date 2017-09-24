@@ -9,9 +9,29 @@ public class Player extends JavaScriptObject {
 				highres = "highres", def = "default";
 	}
 
+	static public class VideoData extends JavaScriptObject {
+		protected VideoData() {}
+
+		public native String getAuthor()/*-{
+			return this.author;
+		}-*/;
+
+		public native String getTitle()/*-{
+			return this.title;
+		}-*/;
+
+		public native String getVideoId()/*-{
+			return this.video_id;
+		}-*/;
+		
+		public native String getVideoQuality()/*-{
+			return this.video_quality;
+		}-*/;
+
+	}
+	
 	static public class VideoParams extends JavaScriptObject {
-		protected VideoParams() {
-		}
+		protected VideoParams() {}
 
 		static public native VideoParams get()/*-{
 			return {};
@@ -195,8 +215,7 @@ public class Player extends JavaScriptObject {
 		return this.getPlaylistIndex();
 	}-*/;
 
-	// TODO jso
-	final public native JavaScriptObject getVideoData()/*-{
+	final public native VideoData getVideoData()/*-{
 		return this.getVideoData();
 	}-*/;
 
