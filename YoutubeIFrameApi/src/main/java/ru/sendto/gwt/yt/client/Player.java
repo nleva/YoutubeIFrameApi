@@ -12,19 +12,19 @@ public class Player extends JavaScriptObject {
 	static public class VideoData extends JavaScriptObject {
 		protected VideoData() {}
 
-		public native String getAuthor()/*-{
+		final public native String getAuthor()/*-{
 			return this.author;
 		}-*/;
 
-		public native String getTitle()/*-{
+		final public native String getTitle()/*-{
 			return this.title;
 		}-*/;
 
-		public native String getVideoId()/*-{
+		final public native String getVideoId()/*-{
 			return this.video_id;
 		}-*/;
 		
-		public native String getVideoQuality()/*-{
+		final public native String getVideoQuality()/*-{
 			return this.video_quality;
 		}-*/;
 
